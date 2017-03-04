@@ -5,9 +5,9 @@ import java.awt.Graphics;
 
 public class HUD {
 	
-	public static int HEALTH = 100;  // static can be referenced from anywhere
+	public static float HEALTH = 100;  // static can be referenced from anywhere
 	
-	private int greenValue = 255;
+	private float greenValue = 255;
 	private int score = 0;
 	private int level = 1;
 	
@@ -32,8 +32,8 @@ public class HUD {
 		// health bar customization
 		g.setColor(Color.GRAY);
 		g.fillRect(15, 15, 200, 20);
-		g.setColor(new Color(75, greenValue, 0));
-		g.fillRect(15, 15, HEALTH * 2, 20);
+		g.setColor(new Color(75,(int) greenValue, 0));
+		g.fillRect(15, 15,(int) HEALTH * 2, 20);
 		g.setColor(Color.WHITE);
 		g.drawRect(15, 15, 200, 20); // border around health bar
 		

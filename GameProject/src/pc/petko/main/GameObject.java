@@ -11,11 +11,11 @@ import java.awt.Rectangle;
 */
 public abstract class GameObject {
 	
-	protected int x,y;		// only accessed by which object inherits the GameObject
+	protected float x,y;		// only accessed by which object inherits the GameObject
 	protected ID id;
-	protected int velX, velY;  // speed x,y directions
+	protected float velX, velY;  // speed x,y directions
 	
-	public GameObject(int x, int y, ID id) {
+	public GameObject(float x, float y, ID id) {
 		this.x = x;
 		this.y = y;
 		this.id = id;
@@ -36,11 +36,11 @@ public abstract class GameObject {
 		this.y = y;
 	}
 	
-	public int getX() {
+	public float getX() {
 		return x;
 	}
 	
-	public int getY() {
+	public float getY() {
 		return y;
 	}
 	
@@ -52,11 +52,11 @@ public abstract class GameObject {
 		this.velY = velY;
 	}
 	
-	public int getVelX() {
+	public float getVelX() {
 		return velX;
 	}
 	
-	public int getVelY() {
+	public float getVelY() {
 		return velY;
 	}
 	

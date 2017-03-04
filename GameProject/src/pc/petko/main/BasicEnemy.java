@@ -26,18 +26,18 @@ public class BasicEnemy extends GameObject{
 		if (y <= 0 || y >= Game.HEIGHT - 34) velY *= -1; // reversing the velocity
 		if (x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
 		
-		handler.object.add(new Trail(x, y, ID.Trail, handler, Color.red, 16, 16, 0.02f));
+		handler.addObject(new Trail((int)x,(int) y, ID.Trail, handler, Color.red, 16, 16, 0.02f));
 	}
 
 	@Override
 	public void render(Graphics g) {
 		g.setColor(Color.RED);
-		g.fillRect(x, y, 16, 16);
+		g.fillRect((int)x, (int)y, 16, 16);
 	}
 
 	@Override
 	public Rectangle getBounds() {	
-		return new Rectangle(x, y, 16, 16);
+		return new Rectangle((int)x, (int)y, 16, 16);
 	}
 	
 }

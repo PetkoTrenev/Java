@@ -1,4 +1,4 @@
-package pc.petko.main;
+ package pc.petko.main;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -16,7 +16,7 @@ public class Trail extends GameObject{
 	
 	private int width, height;
 	
-	public Trail(int x, int y, ID id, Handler handler, Color color, int width, int height, float life) {
+	public Trail(float x, float y, ID id, Handler handler, Color color, int width, int height, float life) {
 		super (x,y,id);
 		this.handler = handler;
 		this.height = height;
@@ -47,7 +47,7 @@ public class Trail extends GameObject{
 		g2d.setComposite(makeTransparent(alpha));
 		
 		g.setColor(color);
-		g.fillRect(x, y, width, height); // corresponding trail
+		g.fillRect((int)x,(int) y, width, height); // corresponding trail
 		
 		g2d.setComposite(makeTransparent(1));
 		
