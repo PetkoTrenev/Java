@@ -7,7 +7,6 @@ import java.util.Random;
 
 public class Player extends GameObject{
 	
-	// cool stuff
 	Random r = new Random();
 	Handler handler;
 	
@@ -25,19 +24,21 @@ public class Player extends GameObject{
 		x = Game.clamp(x, 0, Game.WIDTH - 38);
 		y = Game.clamp(y, 0, Game.HEIGHT - 64);
 		
-		//handler.object.add(new Trail(x,y, ID.Trail, handler, Color.WHITE, 32, 32, 0.02f));
+		handler.object.add(new Trail(x,y, ID.Trail, handler, Color.WHITE, 32, 32, 0.1f));
 		
 		collision();
 	}
 	
-	private void collision() {  // objects collide
+	
+	// handle object collision
+	private void collision() {
 		for (int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i);
 			
 			if (tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy) {
 				if (getBounds().intersects(tempObject.getBounds())) {
 					// collision code
-					HUD.HEALTH -= 2;
+					HUD.HEALTH -= 2;   // why?
 				}
 			}
 		}

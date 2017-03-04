@@ -1,0 +1,34 @@
+package pc.petko.main;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.util.Random;
+
+public class Player extends GameObject{
+	
+	// cool stuff
+	Random r = new Random();
+
+	public Player(int x, int y, ID id) {
+		super(x, y, id);
+		
+		
+	}
+
+	@Override
+	public void tick() {
+		// very import to make Players move
+		x += velX;
+		y += velY;
+	}
+
+	@Override
+	public void render(Graphics g) {
+		if (id == ID.Player) g.setColor(Color.white);
+		g.fillRect(x, y, 32, 32);  // box size
+		
+	}
+	
+	
+
+}

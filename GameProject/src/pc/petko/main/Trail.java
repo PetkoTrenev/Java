@@ -9,12 +9,12 @@ import java.awt.Rectangle;
 public class Trail extends GameObject{
 	
 	private float alpha = 1;
-	private Handler handler;
-	private Color color;
-	private int width, height;
 	private float life;
 	
-	// life is a value between 0.01 - 0.1
+	private Handler handler;
+	private Color color;
+	
+	private int width, height;
 	
 	public Trail(int x, int y, ID id, Handler handler, Color color, int width, int height, float life) {
 		super (x,y,id);
@@ -22,6 +22,7 @@ public class Trail extends GameObject{
 		this.height = height;
 		this.width = width;
 		this.life = life;
+		this.color = color;
 	}
 
 	@Override
@@ -34,14 +35,15 @@ public class Trail extends GameObject{
 	}
 	
 	// Read about it!!!
-	public AlphaComposite makeTransparent(float alpha) {
+	private AlphaComposite makeTransparent(float alpha) {
 		int type = AlphaComposite.SRC_OVER;
-		return AlphaComposite.getInstance(type,alpha);
+		return(AlphaComposite.getInstance(type,alpha)); 
 	}
 
 	// Deals with trail effect
 	public void render(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
+		
 		g2d.setComposite(makeTransparent(alpha));
 		
 		g.setColor(color);

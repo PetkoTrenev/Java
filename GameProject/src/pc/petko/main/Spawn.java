@@ -10,7 +10,7 @@ public class Spawn{
 	
 	private int scoreKeep = 0;
 	
-	public Spawn(Handler handler, HUD hud) {   // ????? zashto ne pravq instanciq
+	public Spawn(Handler handler, HUD hud) {   // no initialization?
 		this.handler = handler;
 		this.hud = hud;
 	}
@@ -22,7 +22,7 @@ public class Spawn{
 		// actual scoring system
 		if (scoreKeep >= 200) {
 			scoreKeep = 0;
-			hud.setLevel(hud.getLevel() + 1); // interaction with hud
+			hud.setLevel(hud.getLevel() + 1); // interaction with heads up display
 			
 			// adds a new enemy object each level up
 			if (hud.getLevel() == 2) {

@@ -14,7 +14,6 @@ public class FastEnemy extends GameObject{
 		this.handler = handler;
 		velX = 8;
 		velY = 2;
-		
 	}
 
 	@Override
@@ -25,7 +24,8 @@ public class FastEnemy extends GameObject{
 		// Game dimension so the enemy doesn't leave the screen
 		if (y <= 0 || y >= Game.HEIGHT - 34) velY *= -1; // reversing the velocity
 		if (x <= 0 || x >= Game.WIDTH - 16) velX *= -1;
-		handler.object.add(new Trail(x, y, ID.Trail, handler, Color.cyan, 16, 16, 0.10f));
+		
+		handler.object.add(new Trail(x, y, ID.Trail, handler, Color.cyan, 16, 16, 0.02f));
 	}
 
 	@Override

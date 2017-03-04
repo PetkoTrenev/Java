@@ -1,0 +1,24 @@
+package pc.petko.main;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class KeyInput extends KeyAdapter{
+	
+	private Handler handler;
+	
+	public KeyInput(Handler handler) {
+		this.handler = handler;
+	}
+	
+	 public void keyPressed(KeyEvent e){
+		 int key = e.getKeyCode(); // press a key display number value ASCII
+
+		 
+	 }
+	 
+	 public void keyReleased(KeyEvent e){
+		 
+	 }
+
+}

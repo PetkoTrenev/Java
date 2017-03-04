@@ -1,0 +1,10 @@
+package pc.petko.main;
+
+
+/*
+ * Maintain update and render all the objects
+ * 
+ */
+public class Handler {
+
+}

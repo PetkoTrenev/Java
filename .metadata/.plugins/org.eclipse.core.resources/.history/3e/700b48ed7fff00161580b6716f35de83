@@ -1,0 +1,23 @@
+package pc.petko.main;
+
+import java.util.ArrayList;
+
+public class Customer {
+	private ArrayList<Double> transaction;
+	private String name;
+	
+	public Customer(String name) {
+		this.name = name;
+		transaction = new ArrayList<>();
+	}
+	
+	public void setTransactions(ArrayList<Double> transaction) {
+		this.transaction = transaction;
+	}
+	
+	public ArrayList<Double> getTransactions() {
+		return transaction;
+	}
+	
+	
+}
