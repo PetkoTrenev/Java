@@ -40,7 +40,7 @@ public class App {
 				return q;
 			} else if (arr[q] > x){
 				r = q - 1;
-			} else if (arr[q] < x){
+			} else if (x > arr[q]){
 				p = q + 1;
 			}
 			

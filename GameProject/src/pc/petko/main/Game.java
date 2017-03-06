@@ -37,7 +37,8 @@ public class Game extends Canvas implements Runnable{
 		
 		
 		handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player, handler));  // creates player object
-		handler.addObject(new BasicEnemy(r.nextInt(Game.HEIGHT), r.nextInt(Game.WIDTH),ID.BasicEnemy, handler)); //creates start enemy
+		//handler.addObject(new EnemyBoss((Game.WIDTH/2)-48, -120,ID.EnemyBoss, handler));
+		//handler.addObject(new BasicEnemy(r.nextInt(Game.HEIGHT), r.nextInt(Game.WIDTH),ID.BasicEnemy, handler)); //creates start enemy
 	}
 	
 	public synchronized void start() {  // synchronized because it's a thread
