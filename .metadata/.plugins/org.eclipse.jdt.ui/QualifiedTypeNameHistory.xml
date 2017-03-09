@@ -12,4 +12,6 @@
 <fullyQualifiedTypeName name="pc.petko.main.Branch"/>
 <fullyQualifiedTypeName name="java.net.SocketTimeoutException"/>
 <fullyQualifiedTypeName name="pc.petko.main.ID"/>
+<fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
+<fullyQualifiedTypeName name="pc.petko.main.Game.STATE"/>
 </qualifiedTypeNameHistroy>

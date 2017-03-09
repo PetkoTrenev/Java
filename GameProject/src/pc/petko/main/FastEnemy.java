@@ -12,8 +12,8 @@ public class FastEnemy extends GameObject{
 	public FastEnemy(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
-		velX = 8;
-		velY = 2;
+		velX = 2;
+		velY = 9;
 	}
 
 	@Override

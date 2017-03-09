@@ -44,6 +44,7 @@ public class Bank {
 			System.out.println("Customer details for branch " + branch.getName());
 			
 			ArrayList<Customer> branchCustomers = new ArrayList<>();
+			
 			for (int i = 0; i < branchCustomers.size(); i++) {
 				Customer tempCustomer = branchCustomers.get(i);
 				System.out.println("Customer: " + tempCustomer.getName() + "[" + i + "]");
@@ -70,15 +71,15 @@ public class Bank {
 		return false;
 	}
 	
-	// find customer
+	// find branch if already exists ?
 	private Branch findBranch(String branchName) {
 		for (int i = 0; i < branches.size(); i++) {
 			Branch tempBranch = branches.get(i); // gets temp branch
 			if (tempBranch.getName().equals(branchName)) {
-				return tempBranch;
+				return tempBranch; // already exists
 			}
 		} 
-		return null;
+		return null; // no such branch
 	}
 
 }

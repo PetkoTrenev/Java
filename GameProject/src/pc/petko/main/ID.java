@@ -8,6 +8,7 @@ public enum ID {
 	FastEnemy(),
 	SmartEnemy(),
 	EnemyBoss(),
+	MenuParticle(),
 	Trail();
 	
 }

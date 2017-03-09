@@ -1,0 +1,52 @@
+package algo.selectionsort;
+
+public class App {
+
+	public static void main(String[] args) {
+		int[] myArray = selectionSort2(new int[] {9,8,3,13,87,12,99});
+		for (int i = 0; i < myArray.length; i++) {
+			System.out.println(myArray[i]);
+		}
+	}
+	
+	public static int[] selectionSort(int[] arr) {
+		for (int i = 0; i < arr.length; i++) {
+			int min = i; // the index of the first element
+			
+			/*
+			 * Second loop, loops for each index
+			 * checks each next index to the first minimum
+			 *  */			
+			for (int j = i+1; j < arr.length; j++) {
+				if (arr[j] < arr[i]){
+					min = j;
+				}
+			}
+			// swapping
+			int temp = arr[i];  // stores first element
+			arr[i] = arr[min];  // the actual swap begins (the first element is now the element at min position)
+			arr[min] = temp;    // swap completed
+		}
+		return arr;
+	}
+	
+	public static int[] selectionSort2(int[] a) {
+		for (int i = 0 ; i < a.length; i++) {
+			int min = a[i];
+			
+			for (int j = i+1; j < a.length; j++) {
+				if (a[j] < a[i]) {
+					min = a[j];
+				}
+			}
+			
+			// swap
+			int temp = a[i];
+			a[i] = a[min];
+			a[min] = temp;
+		} 
+		return a;
+	}
+    
+
+}

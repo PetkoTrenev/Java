@@ -23,22 +23,45 @@ public class Game extends Canvas implements Runnable{
 	private Random r;
 	private HUD hud;
 	private Spawn spawner;
+	private Menu menu;
+	
+	
+	public enum STATE {
+		Menu,
+		Help,
+		Game,
+		End
+	};
+	
+	public static STATE gameState = STATE.Menu; // its like a data type
 	
 	// Initialize all of the objects
 	public Game() {
 		handler = new Handler();
+		hud = new HUD(); 
+		menu = new Menu(this, handler, hud);
+		
 		this.addKeyListener(new KeyInput(handler)); // handler determines which of the object's input
+		this.addMouseListener(menu);  
 		
 		new Window(WIDTH, HEIGHT, "Game title", this);  //x this refers to the game class
 	
-		hud = new HUD(); 
+		
 		spawner = new Spawn(handler, hud);
 		r = new Random();
 		
 		
-		handler.addObject(new Player(WIDTH/2 - 32, HEIGHT/2 - 32, ID.Player, handler));  // creates player object
-		//handler.addObject(new EnemyBoss((Game.WIDTH/2)-48, -120,ID.EnemyBoss, handler));
-		//handler.addObject(new BasicEnemy(r.nextInt(Game.HEIGHT), r.nextInt(Game.WIDTH),ID.BasicEnemy, handler)); //creates start enemy
+		if (gameState == STATE.Game) {
+			handler.addObject(new Player(Game.WIDTH/2 - 32, Game.HEIGHT/2 - 32, ID.Player, handler));  // creates player object
+			handler.addObject(new BasicEnemy(r.nextInt(Game.HEIGHT), r.nextInt(Game.WIDTH),ID.BasicEnemy, handler)); //creates start enemy
+			
+		} else {
+			for (int i = 0; i < 20; i++) { 
+			handler.addObject(new MenuParticle(r.nextInt(WIDTH),r.nextInt(HEIGHT), ID.MenuParticle, handler));
+			}
+		}
+		
+		
 	}
 	
 	public synchronized void start() {  // synchronized because it's a thread
@@ -47,9 +70,11 @@ public class Game extends Canvas implements Runnable{
 		running = true;
 	}
 	
-	public synchronized void stop() {  // synchronized because it's a thread
+	public synchronized void stop() {  // synchronizes between threads to do their job one by one
+									   // only one method at a time
+									   // acquire a lock, if problem - > throws exception
 		try {
-			thread.join(); 			   // stops the thread
+			thread.join(); 			   // stops the thread, waits for one thread to stop
 			running = false;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,14 +129,19 @@ public class Game extends Canvas implements Runnable{
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		handler.render(g); // first handler (on top)
-		hud.render(g); // second heads-up display
+		
+		if (gameState == STATE.Game) {
+		    hud.render(g); // second heads-up display
+		} else if (gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End) {
+			menu.render(g);
+		}
 		
 		g.dispose(); // flush
 		bs.show(); // show and flush buffers
 		
 	}
 	
-	// Prohibits box to move out of canvas
+	// Prohibits box to move out of dimensions
 	public static float clamp(float var, float min, float max) {
 		if (var >= max) {
 			return var = max;
@@ -124,8 +154,24 @@ public class Game extends Canvas implements Runnable{
 
 	private void tick() {
 		handler.tick();
-		hud.tick();
-		spawner.tick();
+		if (gameState == STATE.Game) {
+			hud.tick();
+			spawner.tick();
+			
+			if (HUD.HEALTH <= 0) {
+				HUD.HEALTH = 100;
+				gameState = STATE.End;
+				handler.clearEnemies();
+				// more graphics on death screen	
+				for (int i = 0; i < 15; i++) { 
+					handler.addObject(new MenuParticle(r.nextInt(WIDTH),r.nextInt(HEIGHT), ID.MenuParticle, handler));
+				}
+				
+			}
+		} else if (gameState == STATE.Menu || gameState == STATE.End) {
+			menu.tick();
+		} 
+		
 	}
 
 	public static void main (String args[]) {
