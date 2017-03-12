@@ -1,0 +1,5 @@
+package pc.petko.dthashmap;
+
+public class Entry {
+
+}

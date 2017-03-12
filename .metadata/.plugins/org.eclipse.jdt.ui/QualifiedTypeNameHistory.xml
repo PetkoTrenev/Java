@@ -14,4 +14,6 @@
 <fullyQualifiedTypeName name="pc.petko.main.ID"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="pc.petko.main.Game.STATE"/>
+<fullyQualifiedTypeName name="org.hamcrest.core.Is"/>
+<fullyQualifiedTypeName name="org.junit.Assert"/>
 </qualifiedTypeNameHistroy>
