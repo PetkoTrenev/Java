@@ -1,0 +1,16 @@
+package strings;
+
+public class StringPractice {
+	
+	public static void main(String[] args) {
+		printTriangle();
+	}
+
+	public static void printTriangle() {
+		for (int row = 1; row <= 6; row++) {
+			for (int col = 5; col >= row; col++) {
+				System.out.print(col);
+			}
+		}
+	}
+}

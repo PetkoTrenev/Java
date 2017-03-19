@@ -16,4 +16,5 @@
 <fullyQualifiedTypeName name="pc.petko.main.Game.STATE"/>
 <fullyQualifiedTypeName name="org.hamcrest.core.Is"/>
 <fullyQualifiedTypeName name="org.junit.Assert"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>
