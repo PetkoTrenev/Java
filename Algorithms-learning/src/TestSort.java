@@ -32,7 +32,7 @@ public class TestSort {
 			
 		}
 		return arr;
-	}
+	}	
 	
 	/**
 	 * We divide the the list into sorted and unsorted sections
