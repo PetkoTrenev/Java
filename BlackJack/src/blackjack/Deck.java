@@ -50,4 +50,45 @@ public class Deck {
     public List<PokerCard> getCards() {
         return cards;
     }
+
+    public void clear() {
+        cards.clear();
+    }
+
+    public PokerCard draw() {
+        return cards.remove(0);
+    }
+
+    public void add (PokerCard card) {
+        cards.add(card);
+    }
+
+    public PokerCard get(int index) {
+        return cards.get(index);
+    }
+
+    //TODO: do this later, for ace logic
+    public int totalValue() {
+        int total = 0;
+        int numberOfAces = 0;
+        for (PokerCard card : cards) {
+            // because of cards face values
+            if (card.getFaceValue() >= 10) {
+                total += 10;
+            }
+            else if (card.getFaceValue() == 1) {
+                numberOfAces++;
+                total += 11;
+            }
+            else {
+                total = total + card.getFaceValue();
+            }
+        }
+
+        while (total > 21 && numberOfAces >= 1) {
+            total -= 10;
+            numberOfAces--;
+        }
+        return total;
+    }
 }
